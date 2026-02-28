@@ -9,14 +9,13 @@ export default function BubbleTrail() {
     const dot = dotRef.current;
     if (!dot) return;
 
-    // Keep default cursor visible alongside the bubble
+
 
     const handleMouseMove = (e: MouseEvent) => {
       dot.style.left = `${e.clientX - 20}px`;
       dot.style.top = `${e.clientY - 20}px`;
       dot.style.opacity = "1";
 
-      // Check if hovering over a clickable element
       const target = e.target as HTMLElement;
       const isClickable = target.closest("a, button, [role='button'], input, select, textarea, label");
 
