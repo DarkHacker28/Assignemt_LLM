@@ -26,7 +26,7 @@ export default function Home() {
   const [countPop, setCountPop] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  // Fetch all products on mount
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -44,7 +44,7 @@ export default function Home() {
     }
   };
 
-  // Handle category filter
+
   const handleCategoryFilter = (category: string) => {
     setActiveCategory(category);
     setError("");
@@ -59,7 +59,7 @@ export default function Home() {
     setFilteredProducts(source.filter((p) => p.category === category));
   };
 
-  // Handle AI-powered search
+
   const handleAskAI = async (query: string) => {
     setIsLoading(true);
     setError("");
@@ -93,7 +93,7 @@ export default function Home() {
     }
   };
 
-  // Reset to show all products
+ 
   const handleReset = () => {
     setFilteredProducts(products);
     setAiResults([]);
@@ -102,7 +102,7 @@ export default function Home() {
     setActiveCategory("All");
   };
 
-  // Trigger count pop animation when filteredProducts changes
+  
   useEffect(() => {
     if (!isInitialLoad) {
       setCountPop(true);
@@ -130,12 +130,10 @@ export default function Home() {
     return () => observer.disconnect();
   }, [filteredProducts]);
 
-  // Get unique categories
   const categories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
 
   return (
     <main className="min-h-screen page-enter">
-      {/* Header with animated gradient */}
       <header className="animated-gradient-bg border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="text-center mb-6 animate-fade-in-down">
@@ -147,13 +145,12 @@ export default function Home() {
             </p>
           </div>
 
-          {/* AI Search Box */}
           <SearchBox onSearch={handleAskAI} isLoading={isLoading} />
         </div>
       </header>
 
       <div className="max-w-6xl mx-auto px-4 py-6">
-        {/* AI Summary Banner */}
+
         {aiSummary && (
           <div className="mb-6 p-4 bg-indigo-950/50 border border-indigo-500/30 rounded-xl flex items-start gap-3 animate-scale-in">
             <span className="text-2xl animate-wiggle-hover cursor-default">🤖</span>
@@ -170,7 +167,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* Error Banner */}
+
         {error && (
           <div className="mb-6 p-4 bg-red-950/50 border border-red-500/30 rounded-xl flex items-start gap-3 animate-scale-in">
             <span className="text-2xl">⚠️</span>
@@ -186,7 +183,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* Category Filters */}
+
         <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
           {categories.map((cat, i) => (
             <button
@@ -203,7 +200,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Products Count with animated number */}
         <p className="text-sm text-gray-400 mb-4 animate-fade-in">
           Showing{" "}
           <span className={`inline-block font-semibold text-gray-200 ${countPop ? "animate-number-pop" : ""}`}>
@@ -212,7 +208,6 @@ export default function Home() {
           product{filteredProducts.length !== 1 ? "s" : ""}
         </p>
 
-        {/* Loading State with shimmer */}
         {isInitialLoad && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {[...Array(4)].map((_, i) => (
@@ -231,7 +226,6 @@ export default function Home() {
           </div>
         )}
 
-        {/* Product Grid with scroll-triggered reveal */}
         {!isInitialLoad && filteredProducts.length > 0 && (
           <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {filteredProducts.map((product, i) => (
@@ -246,7 +240,6 @@ export default function Home() {
           </div>
         )}
 
-        {/* Empty State */}
         {!isInitialLoad && filteredProducts.length === 0 && !isLoading && (
           <div className="text-center py-16 animate-fade-in-up">
             <p className="text-5xl mb-4 animate-float">🔎</p>
