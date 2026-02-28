@@ -38,7 +38,6 @@ export default function SearchBox({ onSearch, isLoading }: SearchBoxProps) {
     "Compare wireless headphones...",
   ];
 
-  // Typewriter rotating placeholder effect
   useEffect(() => {
     if (isFocused || query) return; // Stop when user is typing
 
@@ -51,7 +50,6 @@ export default function SearchBox({ onSearch, isLoading }: SearchBoxProps) {
           charIndex.current += 1;
         }, 60);
       } else {
-        // Pause at end, then start deleting
         timeoutRef.current = setTimeout(() => setIsTyping(false), 2000);
       }
     } else {
@@ -61,7 +59,6 @@ export default function SearchBox({ onSearch, isLoading }: SearchBoxProps) {
           setPlaceholderText(currentPhrase.slice(0, charIndex.current));
         }, 30);
       } else {
-        // Move to next phrase
         placeholderIndex.current = (placeholderIndex.current + 1) % placeholders.length;
         setIsTyping(true);
       }
@@ -106,7 +103,6 @@ export default function SearchBox({ onSearch, isLoading }: SearchBoxProps) {
               className="w-full pl-10 pr-4 py-3 rounded-xl outline-none transition-all duration-300 text-white bg-white/10 backdrop-blur-sm placeholder-gray-400 focus:bg-white/15 focus:ring-0 search-glow"
               disabled={isLoading}
             />
-            {/* Typewriter cursor when not focused */}
             {!isFocused && !query && (
               <span className="typewriter-cursor absolute right-4 top-1/2 -translate-y-1/2" />
             )}
@@ -131,8 +127,6 @@ export default function SearchBox({ onSearch, isLoading }: SearchBoxProps) {
           </button>
         </div>
       </form>
-
-      {/* Example queries with stagger animation */}
       <div className="flex flex-wrap gap-2 mt-3 justify-center">
         {exampleQueries.map((eq, i) => (
           <button
