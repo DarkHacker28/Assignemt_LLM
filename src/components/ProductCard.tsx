@@ -34,13 +34,10 @@ export default function ProductCard({
           <span className="absolute top-3 left-3 bg-indigo-600 text-white text-xs font-medium px-2.5 py-1 rounded-full badge-slide">
             {category}
           </span>
-          {/* View overlay on image hover */}
           <div className="card-img-overlay">
             <span>View Product</span>
           </div>
         </div>
-
-        {/* Content */}
         <div className="p-4 flex flex-col flex-1">
           <h3 className="text-lg font-semibold text-gray-100 group-hover:text-indigo-400 transition-colors duration-300 hover-underline inline-block">
             {name}
@@ -60,8 +57,6 @@ export default function ProductCard({
               </span>
             ))}
           </div>
-
-          {/* Price with bounce effect on hover */}
           <div className="mt-3 pt-3 border-t border-slate-700">
             <span className="text-xl font-bold text-emerald-400 price-bounce inline-block">
               Rs. {price}
