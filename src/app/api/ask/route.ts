@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { products } from "@/data/products";
 
-// Build a concise product context string for the LLM
 function buildProductContext(): string {
   return products
     .map(
@@ -12,7 +11,6 @@ function buildProductContext(): string {
     .join("\n");
 }
 
-// POST /api/ask — natural language query powered by LLM
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
