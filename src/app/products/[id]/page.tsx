@@ -7,7 +7,6 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
-// Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
   const product = products.find((p) => p.id === parseInt(id));
@@ -19,7 +18,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-// Pre-generate all product pages at build time
 export function generateStaticParams() {
   return products.map((p) => ({ id: String(p.id) }));
 }
