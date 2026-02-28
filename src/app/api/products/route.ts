@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { products } from "@/data/products";
 
-// GET /api/products — list/filter products by category or search query
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const category = searchParams.get("category");
