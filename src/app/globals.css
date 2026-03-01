@@ -19,6 +19,7 @@ body {
   font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* ===== KEYFRAME ANIMATIONS ===== */
 
 @keyframes fadeInUp {
   from {
@@ -59,17 +60,6 @@ body {
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 
@@ -117,35 +107,7 @@ body {
   }
 }
 
-@keyframes glowPulse {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(37, 99, 235, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
-  }
-}
-
-@keyframes borderDraw {
-  from {
-    border-color: transparent;
-  }
-  to {
-    border-color: #e2e8f0;
-  }
-}
-
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* ===== ANIMATION UTILITY CLASSES ===== */
 
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease-out forwards;
@@ -167,11 +129,6 @@ body {
   opacity: 0;
 }
 
-.animate-slide-in-left {
-  animation: slideInLeft 0.4s ease-out forwards;
-  opacity: 0;
-}
-
 .animate-pop-in {
   animation: popIn 0.4s ease-out forwards;
   opacity: 0;
@@ -183,10 +140,6 @@ body {
 
 .animate-wiggle-hover:hover {
   animation: wiggle 0.4s ease-in-out;
-}
-
-.animate-glow-pulse {
-  animation: glowPulse 2s ease-in-out infinite;
 }
 
 /* Stagger delay utilities */
@@ -222,31 +175,7 @@ body {
   transform: scale(0.97);
 }
 
-/* Shine sweep effect on hover */
-.hover-shine {
-  position: relative;
-  overflow: hidden;
-}
-.hover-shine::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: left 0.5s ease;
-  pointer-events: none;
-}
-.hover-shine:hover::after {
-  left: 100%;
-}
-
+/* Glow border on hover */
 .hover-glow {
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -266,10 +195,12 @@ body {
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
 }
 
+/* Price bounce on card hover */
 .group:hover .price-bounce {
   animation: popIn 0.3s ease-out;
 }
 
+/* Image zoom with blur unsharp */
 .img-hover-zoom {
   transition: transform 0.5s ease, filter 0.3s ease;
 }
@@ -277,6 +208,7 @@ body {
   transform: scale(1.08);
 }
 
+/* Image overlay - fades in on card hover */
 .card-img-overlay {
   position: absolute;
   inset: 0;
@@ -302,6 +234,7 @@ body {
   transform: translateY(0);
 }
 
+/* Category badge slide */
 .badge-slide {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -316,6 +249,7 @@ body {
   transition: transform 0.1s ease;
 }
 
+/* Search input attention pulse - glows when not focused */
 @keyframes searchPulse {
   0%, 100% {
     box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3), 0 0 15px rgba(99, 102, 241, 0.15), 0 0 30px rgba(99, 102, 241, 0.05);
@@ -345,12 +279,14 @@ body {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2), 0 0 20px rgba(99, 102, 241, 0.1);
 }
 
+/* Shimmer loading effect */
 .shimmer {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }
 
+/* Smooth underline on hover */
 .hover-underline {
   position: relative;
 }
@@ -368,6 +304,7 @@ body {
   width: 100%;
 }
 
+/* Ripple on click for category buttons */
 .ripple {
   position: relative;
   overflow: hidden;
@@ -389,6 +326,7 @@ body {
   height: 200px;
 }
 
+/* Cursor follow glow - subtle gradient that follows hover area */
 .card-glow-wrapper {
   position: relative;
 }
@@ -405,6 +343,7 @@ body {
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.1));
 }
 
+/* Smooth page transitions */
 .page-enter {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -415,28 +354,12 @@ body {
   animation: float 2.5s ease-in-out infinite;
 }
 
-.stagger-grid > * {
-  opacity: 0;
-  animation: fadeInUp 0.4s ease-out forwards;
-}
-.stagger-grid > *:nth-child(1) { animation-delay: 0.05s; }
-.stagger-grid > *:nth-child(2) { animation-delay: 0.1s; }
-.stagger-grid > *:nth-child(3) { animation-delay: 0.15s; }
-.stagger-grid > *:nth-child(4) { animation-delay: 0.2s; }
-.stagger-grid > *:nth-child(5) { animation-delay: 0.25s; }
-.stagger-grid > *:nth-child(6) { animation-delay: 0.3s; }
-.stagger-grid > *:nth-child(7) { animation-delay: 0.35s; }
-.stagger-grid > *:nth-child(8) { animation-delay: 0.4s; }
-
+/* Tooltip-style hover info */
 .hover-lift {
   transition: all 0.25s ease;
 }
 .hover-lift:hover {
   transform: translateY(-3px);
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
 }
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
@@ -446,17 +369,6 @@ body {
 @keyframes bounceDot {
   0%, 80%, 100% { transform: translateY(0); }
   40% { transform: translateY(-8px); }
-}
-
-@keyframes pulseRing {
-  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-  70% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-}
-
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes numberPop {
@@ -488,25 +400,7 @@ body {
 .bouncing-dots span:nth-child(2) { animation-delay: 0.15s; }
 .bouncing-dots span:nth-child(3) { animation-delay: 0.3s; }
 
-.pulse-ring {
-  animation: pulseRing 2s infinite;
-}
-
-.typewriter-cursor {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  background: #9ca3af;
-  margin-left: 1px;
-  animation: blink 1s step-end infinite;
-  vertical-align: text-bottom;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.4s ease-out forwards;
-  opacity: 0;
-}
-
+/* Number pop on change */
 .animate-number-pop {
   animation: numberPop 0.4s ease-out;
 }
@@ -522,14 +416,12 @@ body {
   transform: translateY(0);
 }
 
+/* Back arrow hover animation */
 .back-arrow-link:hover .back-arrow-icon {
   animation: arrowSlide 0.6s ease-in-out infinite;
 }
 
-.grid-animate {
-  transition: all 0.3s ease-out;
-}
-
+/* Bubble cursor breathing animation */
 @keyframes bubbleBreathe {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.4); }
@@ -540,6 +432,7 @@ body {
   transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Shrink + turn blue on clickable elements */
 .bubble-cursor.bubble-pointer {
   width: 25px !important;
   height: 25px !important;
