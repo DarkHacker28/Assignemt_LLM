@@ -117,7 +117,7 @@ export const products: Product[] = [
     description:
       "True wireless earbuds with hybrid ANC, transparency mode, and 8-hour playtime. IPX5 water-resistant with spatial audio support for immersive listening.",
     tags: ["earbuds", "wireless", "noise-cancelling", "portable"],
-    image: "https://images.unsplash.com/photo-1590658268037-6bf12f032f55?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1606741965326-cb990ae01bb2?w=400&h=300&fit=crop",
   },
   {
     id: 12,
